@@ -51,7 +51,11 @@ class Project < ActiveRecord::Base
       before_sha: before_sha
     }
 
-    @build = Build.create(data)
+    # only build tracked branches
+    refs = self.tracked_refs
+    if(refs.include? ref)
+       @build = Build.create(data)
+    end
   end
 
   def gitlab?
