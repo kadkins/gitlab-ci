@@ -85,7 +85,8 @@ class Runner
     @process.environment['BUNDLE_BIN_PATH'] = ''
     @process.environment['RUBYOPT'] = ''
     @process.environment['CI_BUILD_REF'] = build.ref
-    
+    @process.environment['LANG'] = 'en_US.UTF-8'
+
     @process.start
 
     build.set_file @tmp_file.path
